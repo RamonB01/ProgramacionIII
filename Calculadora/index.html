@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Calculadora</title>
 </head>
 <body>
-    <div id="val1"> Valor 1 </div>
-    <br>
-    <input type="number" id="texto1" />
-    <br>
-    <div id="val2"> Valor 2 </div>
-    <br> 
-    <input type="number" id="texto2" />
-    <br>
-    <button onclick="calcSuma()"> Calcular </button>
-    <br>
-    <div id="texto3"> El resultado es </div>
-    <div id="texto4"> 0 </div>
+    <div class="calculadoraa">
+        <div id="val1"> Valor 1 </div>
+        <input type="number" id="texto1" />
+        <div id="val2"> Valor 2 </div>
+        <input type="number" id="texto2" />
+        <button onclick="calcSuma()"> Calcular </button>
+        <div class="resultado">
+            <div id="texto3"> El resultado es: </div>
+            <div id="texto4"> 0 </div>
+        </div>
+    </div>
     
     <script>
         function calcSuma(){
@@ -31,7 +31,8 @@
             }
             else{
                 //document.getElementById("texto4").innerHTML = "Error, solo puede ingresar numeros menores o igual a 10" ;
-                texto4.innerHTML = "Error, solo puede ingresar numeros menores o igual a 10"
+                // texto4.innerHTML = "Error, solo puede ingresar numeros menores o igual a 10"
+                texto4.innerHTML = "Error"
                 limpiar()
             }
         }
