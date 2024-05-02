@@ -32,8 +32,12 @@
             else{
                 //document.getElementById("texto4").innerHTML = "Error, solo puede ingresar numeros menores o igual a 10" ;
                 texto4.innerHTML = "Error, solo puede ingresar numeros menores o igual a 10"
+                limpiar()
             }
-                
+        }
+        function limpiar(){
+            document.getElementById("texto1").value = "";
+            document.getElementById("texto2").value = "";
         }
         
     </script>
