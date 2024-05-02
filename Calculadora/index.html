@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div id="val1"> Valor 1 </div>
+    <br>
+    <input type="number" id="texto1" />
+    <br>
+    <div id="val2"> Valor 2 </div>
+    <br> 
+    <input type="number" id="texto2" />
+    <br>
+    <button onclick="calcSuma()"> Calcular </button>
+    <br>
+    <div id="texto3"> El resultado es </div>
+    <div id="texto4"> 0 </div>
+    
+    <script>
+        function calcSuma(){
+            let texto1 = document.getElementById("texto1").value;
+            let texto2 = document.getElementById("texto2").value;
+            //return console.log(parseInt(texto1) + parseInt(texto2))
+            if (parseInt(texto1) <= 10 && parseInt(texto2) <= 10){
+                let resultado = (parseInt(texto1) + parseInt(texto2));
+                //document.getElementById("texto4").innerHTML = resultado; 
+                texto4.innerHTML = resultado 
+            }
+            else{
+                //document.getElementById("texto4").innerHTML = "Error, solo puede ingresar numeros menores o igual a 10" ;
+                texto4.innerHTML = "Error, solo puede ingresar numeros menores o igual a 10"
+            }
+                
+        }
+        
+    </script>
+</body>
+</html>
