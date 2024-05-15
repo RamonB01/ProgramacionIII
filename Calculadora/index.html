@@ -11,8 +11,15 @@
         <div id="val1"> Valor 1 </div>
         <input type="number" id="texto1" />
         <div id="val2"> Valor 2 </div>
-        <input type="number" id="texto2" />
-        <button onclick="calcSuma()"> Calcular </button>
+        <input type="number" id="texto2" /> <br> <br>
+        <select name="" id="operacionSelect">
+            <option value="0" selected>Seleccione una Operación</option>
+            <option value="1">Suma</option>
+            <option value="2">Resta</option>
+            <option value="3">Multiplicación</option>
+            <option value="4">División</option>
+        </select>
+        <button onclick="operaciones();"> Calcular </button>
         <div class="resultado">
             <div id="texto3"> El resultado es: </div>
             <div id="texto4"> 0 </div>
@@ -20,25 +27,88 @@
     </div>
     
     <script>
-        function calcSuma(){
-            let texto1 = document.getElementById("texto1").value;
-            let texto2 = document.getElementById("texto2").value;
-            //return console.log(parseInt(texto1) + parseInt(texto2))
-            if (parseInt(texto1) <= 10 && parseInt(texto2) <= 10){
-                let resultado = (parseInt(texto1) + parseInt(texto2));
-                //document.getElementById("texto4").innerHTML = resultado; 
-                texto4.innerHTML = resultado 
+        function operaciones(){
+            const selectValor = document.getElementById("operacionSelect").value
+            const numero1 = +document.getElementById("texto1").value;
+            const numero2 = +document.getElementById("texto2").value;
+            let resultado = 0
+            const texto4 = document.getElementById("texto4")
+            const fondoo = document.getElementsByClassName("calculadoraa")[0]
+
+            if (numero1 >= 10 || numero2 >= 10){
+                alert("Solo se pueden incresar numero menores a 10")
+                limpiar()
+                return;
             }
-            else{
+
+            switch(selectValor){
+                case "0":
+                    limpiar()
+                    texto4.style = "color: white;"
+                    fondoo.style.background = "linear-gradient(160deg, rgb(25, 132, 225), rgb(6, 77, 138))"
+                break;
+                case "1":
+                    resultado = numero1 + numero2
+                    texto4.style = "color: black;"
+                    fondoo.style.background = "linear-gradient(160deg, yellow, rgb(231, 231, 152))";
+                    //claseFondo = "suma";
+                    //console.log(resultado)
+                break;
+                case "2":
+                    resultado = numero1 - numero2
+                    texto4.style = "color: red;"
+                    fondoo.style.background = "linear-gradient(160deg, rgb(255, 136, 0), rgb(248, 186, 116))"
+                    //claseFondo = "resta";
+                    //console.log(resultado)
+                break;
+                case "3":
+                    resultado = numero1 * numero2
+                    texto4.style = "color: mediumspringgreen;"
+                    fondoo.style.background = "linear-gradient(160deg, mediumspringgreen, rgb(91, 148, 91))"
+                    //claseFondo = "multiplicacion";
+                    //console.log(resultado)
+                break;
+                case "4":
+                    if (numero1 !== 0 && numero2 !== 0){
+                        resultado = numero1 / numero2
+                    }
+                    else{
+                        resultado = "Error. Imagínate que tiene cero galletas y las repartes entre cero amigos. ¿Cuántas galletas le tocan a cada amigo? No tiene sentido. ¿Lo ves? Así que el monstruo de las galletas está triste porque no tiene galletas y tú estás triste porque no tienes amigos"
+                    } 
+                    texto4.style = "color: pink;"
+                    fondoo.style.background = "linear-gradient(160deg, purple, rgb(166, 87, 166))"
+                    //claseFondo = "division";
+                    //console.log(resultado)
+                break;
+                    
+            }
+            
+            //<!-- document.body.className = claseFondo; -->
+
+            texto4.innerHTML = resultado ;
+        }
+
+        //function calcSuma(){
+            //let texto1 = document.getElementById("texto1").value;
+            //let texto2 = document.getElementById("texto2").value;
+            //return console.log(parseInt(texto1) + parseInt(texto2))
+           // if (parseInt(texto1) <= 10 && parseInt(texto2) <= 10){
+             //   let resultado = (parseInt(texto1) + parseInt(texto2));
+                //document.getElementById("texto4").innerHTML = resultado; 
+              //  texto4.innerHTML = resultado 
+            //}
+            //else{
                 //document.getElementById("texto4").innerHTML = "Error, solo puede ingresar numeros menores o igual a 10" ;
                 // texto4.innerHTML = "Error, solo puede ingresar numeros menores o igual a 10"
-                texto4.innerHTML = "Error"
-                limpiar()
-            }
-        }
+              //  texto4.innerHTML = "Error"
+            //    limpiar()
+          //  }
+        //}
+        
         function limpiar(){
             document.getElementById("texto1").value = "";
             document.getElementById("texto2").value = "";
+            document.getElementById("texto4").innerHTML = "0";
         }
         
     </script>
